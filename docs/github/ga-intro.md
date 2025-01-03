@@ -55,10 +55,12 @@ Ce sont chaque petite tâche individuelle exécutée par un travail (job), elles
 
 Visualisez les différentes actions [ici](https://github.com/marketplace?verification=verified_creator&type=actions)
 
-Elles sont très nombreuses et au final on utilise souvent les même, voici une liste d'action à connaitre :
+Elles sont très nombreuses et au final on utilise souvent les même, voici une liste d'action que vous allez manipuler :
 
 - [Checkout](https://github.com/marketplace/actions/checkout), pour récuperer le code de l'application en lui même.
 - [Super-Linter](https://github.com/marketplace/actions/super-linter), pour vérifier la qualité de votre code.
+- [Upload GitHub Pages artifact](https://github.com/marketplace/actions/upload-github-pages-artifact), pour mettre le résultat de vos builds.
+- [Deploy GitHub Pages site](https://github.com/marketplace/actions/deploy-github-pages-site), pour publier vos site web statiques.
 - [Docker Build and Push](https://github.com/marketplace/actions/build-and-push-docker-images), pour builder une image Docker
 - [Release Please](https://github.com/marketplace/actions/release-please-action) pour générer des belles release grâce aux conventionnal commit.
 
@@ -114,3 +116,18 @@ Puis un simple push déclenchera son exécution.
 Retrouvez dans l'interface Github l'exécution et l'affichage de la vache en asciiart, vous devriez retrouver quelque chose comme ça :
 
 ![Affichage attendu](cowsay-first.png)
+
+## Badge de statut de votre worflow
+
+Vous pouvez intégrer dans votre fichier README.md un badge Github pour surveiller le bon passage de vos workflow, vous avez ce genre de rendu :
+
+![Cowsay running](https://github.com/profy12-mon-orga/doc/actions/workflows/cowsay.yml/badge.svg)
+
+Pour cela il suffit d'inclure dans le markdown de votre fichier markdown READM.md le contenu suivant :
+
+```
+![Cowsay running](https://github.com/profy12-mon-orga/doc/actions/workflows/cowsay.yml/badge.svg)
+```
+
+!!! warning
+    Attention à bien respecter le nommage du path, vérifiez bien les instructions de la [doc officielle](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/adding-a-workflow-status-badge)
