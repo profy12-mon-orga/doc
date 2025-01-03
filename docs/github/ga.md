@@ -35,7 +35,7 @@ Par exemple :
 code .github/workflows/ma-recette.yml
 ```
 
-On peut y définir autant de recette qu'on veut, le répertoire est obligatoire et non paramétrable, donc sur n'importe quel dépôt Github vous pouvez consulter l'ensemble des recettes Github Action en listant le répertoire `.github/workflows/`
+On peut y définir autant de recette qu'on veut, le répertoire est obligatoire et non paramétrable, donc sur n'importe quel dépôt Github public vous pouvez consulter l'ensemble des recettes Github Action en listant le répertoire `.github/workflows/`
 
 Le fichier de recette va indiquer à la fois le ou les évenements sur lesquels il se déclenche et une liste de travaux (job) qu'il va exécuter (voir ci dessous).
 
@@ -47,9 +47,11 @@ On définit ce que l'ont fait et où est ce qu'on le fait. Chaque action du job 
 
 Plusieurs steps sont lancé par un même job et plusieurs jobs peuvent être lancé par un même workflow.
 
+Un exemple de job pourrait par exemple récuperer le code de l'application et le copier dans le répertoire /var/www/ d'un serveur de production.
+
 ## Les étapes (step)
 
-Ce sont chaque petit tâche individuelle exécutée par un travail (job), elles utilisent ce qu'on appelle des actions disponible via le github marketplace.
+Ce sont chaque petite tâche individuelle exécutée par un travail (job), elles utilisent ce qu'on appelle des actions disponible via le github marketplace.
 
 Visualisez les différentes actions [ici](https://github.com/marketplace?verification=verified_creator&type=actions)
 
@@ -78,3 +80,30 @@ L'utilisation du local runner a deux gros avantages :
 - pouvoir s'en servir pour déployer sur notre production finale.
 
 Un job s'exécute sur un seul runner, il faut donc spécifier le runner dans le job en question. Un workflow pouvant exécuter plusieurs jobs, il peut lancer des actions dans plusieurs serveurs et environnements.
+
+## L'exemple simple
+
+```
+name: Cowsay Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  cowsay-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Étape pour afficher une vache avec cowsay
+      - name: Cowsay Hello
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cowsay
+          cowsay "Hello from GitHub Actions!"
+```
+
+Sauvegardez le contenu de ce fichier dans `.github/workflows/cowsay.yml`
+
+Puis un simple push déclenchera son exécution.
