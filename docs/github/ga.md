@@ -81,11 +81,14 @@ L'utilisation du local runner a deux gros avantages :
 
 Un job s'exécute sur un seul runner, il faut donc spécifier le runner dans le job en question. Un workflow pouvant exécuter plusieurs jobs, il peut lancer des actions dans plusieurs serveurs et environnements.
 
-## L'exemple simple
+## Mise en pratique simple
+
+Le but ici est d'écrire notre premier workflow et de visualiser son exécution.
 
 ```
 name: Cowsay Workflow
 
+# Le workflow se déclenchera quand on fera un git push sur main
 on:
   push:
     branches:
@@ -107,3 +110,7 @@ jobs:
 Sauvegardez le contenu de ce fichier dans `.github/workflows/cowsay.yml`
 
 Puis un simple push déclenchera son exécution.
+
+Retrouvez dans l'interface Github l'exécution et l'affichage de la vache en asciiart, vous devriez retrouver quelque chose comme ça :
+
+![Affichage attendu](cowsay-first.png)
