@@ -7,7 +7,8 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "redhat.vscode-yaml"
+                "redhat.vscode-yaml",
+                "GitHub.vscode-github-actions"
             ]
         }
     }
