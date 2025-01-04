@@ -3,7 +3,7 @@ FROM python:alpine AS base
 WORKDIR /app
 COPY requirements.txt .
 RUN apk add --no-cache git
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 # Stage to allow init mkdocs project
 FROM base as init
