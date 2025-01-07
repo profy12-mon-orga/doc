@@ -17,17 +17,17 @@ jobs:
       - name: Get index.html from repository
         uses: actions/checkout@v4
 
-      - name: set python env
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-          cache: 'pip'
+#      - name: set python env
+#        uses: actions/setup-python@v5
+#        with:
+#          python-version: '3.13'
+#          cache: 'pip'
 
-      - run: pip install -r requirements.txt
+#      - run: pip install -r requirements.txt
 
-      - run: docker -v
+      - run: docker build --target build -t mkdoc-builder .
 
-      - run: mkdocs build
+      - run: docker run --rm -v ./site:/app/site mkdoc-builder
 
       - name: Upload static files as artifact
         id: deployment
