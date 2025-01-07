@@ -9,4 +9,4 @@ Cette documentation a pour but de centraliser différentes informations utiles a
 
 Elle s'addresse principalement aux apprenants en reconversion pro, le but est de couvrir l'ensemble des principes et technologies indispensables à une intégration dans le monde de l'entreprise.
 
-Sa génération est automatique et se fait en moins de 20s
+Sa génération est automatique et se fait en 1 minute.
