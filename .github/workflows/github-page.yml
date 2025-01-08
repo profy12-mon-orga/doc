@@ -30,7 +30,7 @@ jobs:
       - run: docker run --rm -v ./site:/app/site mkdoc-builder
 
       - run: |
-          grep "doctype html" site/github/ga-intro/index.html
+          grep "docccctype html" site/github/ga-intro/index.html
 
       - name: Upload static files as artifact
         id: deployment
