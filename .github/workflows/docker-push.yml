@@ -1,14 +1,11 @@
 name: docker-build
 
 on:
+  schedule:
+    - cron: '15 2 * * * '
   push:
-    branches:
-      - 'main'
     tags:
       - 'v*'
-  pull_request:
-    branches:
-      - 'main'
 env:
     REGISTRY: docker.io
     IMAGE_NAME: aurelienbras/mkdoc-build
@@ -30,7 +27,7 @@ jobs:
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
+            type=schedule,pattern={{date 'YYYYMMDD'}}
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
