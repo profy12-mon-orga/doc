@@ -3,6 +3,12 @@ name: Cowsay Workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'version you shoud want'
+        required: true
+        type: string
+        default: "0.1"
   push:
     branches:
       - main
@@ -17,4 +23,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y cowsay
-          cowsay "Hello from GitHub Actions!"
+          cowsay "Hello from GitHub Actions! La version est $VERSION"
+        env:
+          VERSION: ${{ github.event.inputs.version }}
